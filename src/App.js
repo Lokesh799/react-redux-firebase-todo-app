@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Header } from './components/layout/Header';
-import { Content } from './components/Content';
+import { Content } from './components/layout/Content';
 
 export const App = () => {
   return (
