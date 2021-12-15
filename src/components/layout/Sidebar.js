@@ -5,8 +5,12 @@ import {
   FaRegCalendarAlt,
   FaRegCalendar,
 } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { setSelectedProject } from "../../actions";
 
 export const Sidebar = () => {
+const dispatch = useDispatch();
+
   return (
     <div className="col-md-12 d-none d-md-block bg-li" data-testid="sidebar" style={{
       display: 'flex',
@@ -16,15 +20,15 @@ export const Sidebar = () => {
       height:'50',
     }}>
       <ul className="list-group col-md-10 my-3">
-        <li className="list-group-item" style={{ backgroundColor: '#525252' }}>
+        <li className="list-group-item" style={{ backgroundColor: '#525252' }} onClick={() => dispatch(setSelectedProject('INBOX'))}>
           <span><FaInbox /></span>
           <span>Inbox</span>
         </li>
-        <li className="list-group-item" style={{ backgroundColor: '#abb8c3' }}>
+        <li className="list-group-item" style={{ backgroundColor: '#abb8c3' }} onClick={() => dispatch(setSelectedProject('TODAY'))}>
           <span><FaRegCalendarAlt /></span>
           <span>Today</span>
         </li>
-        <li className="list-group-item" style={{ backgroundColor: '#008b02' }}>
+        <li className="list-group-item" style={{ backgroundColor: '#008b02' }}onClick={() => dispatch(setSelectedProject('7_DAYS'))}>
           <span><FaRegCalendar /></span>
           <span>Next 7 days</span>
         </li>

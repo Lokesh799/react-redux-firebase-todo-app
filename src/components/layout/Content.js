@@ -1,12 +1,15 @@
 import React from "react";
 import { Sidebar } from "./Sidebar";
-import { Tasks } from "../Tasks";
+import { ShowSelectedProject } from "../ShowSelectedProject";
+import { Hook } from "../../hooks";
 
 export const Content = () => {
   return (
     <section>
       <Sidebar />
-      <Tasks/>
+      <ShowSelectedProject/>
+      <Hook/>
+
     </section>
   )
 }
