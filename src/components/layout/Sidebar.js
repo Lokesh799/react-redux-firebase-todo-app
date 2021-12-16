@@ -5,19 +5,23 @@ import {
   FaRegCalendarAlt,
   FaRegCalendar,
 } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { setSelectedProject } from "../../actions";
+import { useDispatch, useSelector} from "react-redux";
+import { setSelectedProject, showProject } from "../../actions";
+import { Projects } from "../Projects";
 
 export const Sidebar = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const showProjects = useSelector((state) => state.addTask.showProject)
+
+  console.log('clicked' , showProjects)
+
 
   return (
+    <>
     <div className="col-md-12 d-none d-md-block bg-li" data-testid="sidebar" style={{
       display: 'flex',
       justifyContent: 'center',
-      backgroundColor: '#db3e00',
-      width:'40%',
-      height:'50',
+      width: '50%',
     }}>
       <ul className="list-group col-md-10 my-3">
         <li className="list-group-item" style={{ backgroundColor: '#525252' }} onClick={() => dispatch(setSelectedProject('INBOX'))}>
@@ -28,22 +32,31 @@ const dispatch = useDispatch();
           <span><FaRegCalendarAlt /></span>
           <span>Today</span>
         </li>
-        <li className="list-group-item" style={{ backgroundColor: '#008b02' }}onClick={() => dispatch(setSelectedProject('7_DAYS'))}>
+        <li className="list-group-item" style={{ backgroundColor: '#008b02' }} onClick={() => dispatch(setSelectedProject('7_DAYS'))}>
           <span><FaRegCalendar /></span>
           <span>Next 7 days</span>
         </li>
       </ul>
-
-      <div className="sidebar__middle">
+       </div>
+      <div
+        className="sidebar__middle"
+        aria-label="Show/hide projects"
+        onClick={() => dispatch(showProject(!showProjects))}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') dispatch(showProject(!showProjects))
+        }}
+        role="button"
+        tabIndex={0}
+      >
         <span>
-          <FaChevronDown />
+          <FaChevronDown
+            className={!showProjects ? 'hidden-projects' : undefined}
+          />
         </span>
-        <h3>Project</h3>
+        <h2>Projects</h2>
       </div>
-
-      <ul className="sidebar__projects">Projects will be here!</ul>
-      Add Project components here
-    </div>
+      <div className="sidebar__projects" >{showProjects && <Projects />}</div>
+   </>
   )
 }
 

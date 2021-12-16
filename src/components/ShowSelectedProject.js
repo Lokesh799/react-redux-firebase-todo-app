@@ -16,20 +16,13 @@ export const ShowSelectedProject = () => {
   
   return (
     <>
-      <div className="sticky-sm-to" style={{
-        float: 'right',
-        marginTop: "-270px",
-        paddingRight: '600px',
-        backgroundColor: '#eb144c',
-        borderRadius: '6px',
-        position: 'static'
-      }}>
+      <div>
 
         {showSelected === "INBOX" ? <div> <h2 data-testid="project-name">INBOX</h2>
           <ul className="task__list">
             {task.map((task) =>
               <li key={`${task.id}`}>
-                <Checkbox id={task.id} taskDesc={task.tasks} />
+                {/* <li id={task.id} taskDesc={task.tasks} /> */}
                 <span>{task.tasks}</span>
               </li>
             )}
@@ -42,7 +35,7 @@ export const ShowSelectedProject = () => {
             <ul className="task__list">
               {task.map((task) =>
                 <li key={`${task.id}`}>
-                  <Checkbox id={task.id} taskDesc={task.tasks} />
+                  {/* <li id={task.id} taskDesc={task.tasks} /> */}
                   <span>{task.tasks}</span>
                 </li>
               )}
@@ -55,7 +48,7 @@ export const ShowSelectedProject = () => {
               <ul className="task__list">
                 {task.map((task) =>
                   <li key={`${task.id}`}>
-                    <Checkbox id={task.id} taskDesc={task.tasks} />
+                    {/* <li id={task.id} taskDesc={task.tasks} /> */}
                     <span>{task.tasks}</span>
                   </li>
                 )}

@@ -4,6 +4,10 @@ import { SET_SHOW_QUICK_TASK,
   SET_TASK_DATE,
   SET_SELECTED_PROJECT,
   GET_SELECTED_TASK,
+  SHOW_PROJECT,
+  ADD_PROJECT,
+  GET_SELECTED_PROJECT,
+  SET_PROJECT_NAME
 } from "../actions";
 
 const initialState = {
@@ -13,6 +17,10 @@ const initialState = {
   showDate:false,
   showSelected:'INBOX',
   selectedTaskRecord:[],
+  showProject:true,
+  addProject:[],
+  getProject:[],
+  setName:[],
 }
 
 const addTask = (state = initialState, action) => {
@@ -46,6 +54,26 @@ const addTask = (state = initialState, action) => {
       return {
         ...state,
         selectedTaskRecord: action.payload,
+      };
+    case SHOW_PROJECT:
+      return {
+        ...state,
+        showProject: action.payload,
+      };
+    case ADD_PROJECT:
+      return {
+        ...state,
+        addProject: action.payload,
+      };
+    case GET_SELECTED_PROJECT:
+      return {
+        ...state,
+        getProject: action.payload,
+      };
+    case SET_PROJECT_NAME:
+      return {
+        ...state,
+        setName: action.payload,
       };
     default:
       return state;
