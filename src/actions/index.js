@@ -10,6 +10,12 @@ export const SET_SELECTED_PROJECT = 'SET_SELECTED_PROJECT';
 export const SET_ACTIVE = 'SET_ACTIVE';
 export const GET_SELECTED_TASK = 'GET_SELECTED_TASK';
 export const GET_SELECTED_PROJECT ='GET_SELECTED_PROJECT';
+export const SET_SELECT_INDIVIDUAL_PROJECT = 'SET_SELECT_INDIVIDUAL_PROJECT ';
+export const SET_SELECT_PROJECT_ID = 'SET_SELECT_PROJECT_ID';
+export const SHOW_TASK_PROJECT = 'SHOW_TASK_PROJECT';
+export const SET_SELECTED_PROJECT_NAME = 'SET_SELECTED_PROJECT_NAME';
+export const SHOW_PROJECTS_ARRAY = 'SHOW_PROJECTS_ARRAY';
+
 
 
 
@@ -26,3 +32,11 @@ export const setSelectedProject = (payload) => ({ type: SET_SELECTED_PROJECT, pa
 export const setActive = (payload) => ({ type: SET_ACTIVE, payload });
 export const getSelectedTask = (payload) => ({ type: GET_SELECTED_TASK, payload });
 export const getSelectedProject = (payload) => ({ type: GET_SELECTED_PROJECT,payload});
+export const setSelectIndividualProject = (payload) => ({ type: SET_SELECT_INDIVIDUAL_PROJECT, payload });
+export const setSelectProjectId= (payload) => ({ type: SET_SELECT_PROJECT_ID, payload });
+export const showTaskProject = (payload) => ({ type: SHOW_TASK_PROJECT, payload });
+export const showSelectProjectName = (payload) => ({ type: SET_SELECTED_PROJECT_NAME, payload });
+export const showProjectArray=(payload)=>({
+  type: SHOW_PROJECTS_ARRAY,
+  payload
+})

@@ -13,7 +13,7 @@ export const Header = () => {
   const quickTask = useSelector((state) => state.addTask.addQuickTask)
   const setTaskDate = useSelector((state) => state.addTask.setTaskDate)
   const showHideCalender = useSelector((state) => state.addTask.toggleDate)
-
+  const projectId = useSelector((state) => state.addTask.storeProjectId)
   const handleChange = (e) => {
     dispatch(setShowQuickAddTask({ ...quickTask, [e.target.name]: e.target.value }))
   }
@@ -25,7 +25,8 @@ export const Header = () => {
       tasks: quickTask.task,
       date: setTaskDate,
       archived: false,
-      userId: 'owTZ4zaSKk8iuYx2m9FK'
+      userId: 'owTZ4zaSKk8iuYx2m9FK',
+      projectId: projectId,
     })
     dispatch(showModel(false));
   }

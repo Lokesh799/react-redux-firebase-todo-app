@@ -9,16 +9,13 @@ export const AddProject = ({ shouldShow = false }) => {
   const [show, setShow] = useState(shouldShow);
   const projects = useSelector((state) => state.addTask.addProject)
   const projectName = useSelector((state) => state.addTask.setName)
-
-  
-
   const addProjects = () =>
     projectName &&
     firebase
       .firestore()
       .collection('projects')
       .add({
-        projectId:new Date().getTime.toString(),
+        projectId:new Date().getTime().toString(),
         name: projectName,
         userId: '"bbORIylmKi9Pg3MaW9fF"',
       })

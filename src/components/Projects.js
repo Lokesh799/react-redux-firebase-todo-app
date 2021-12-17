@@ -1,13 +1,19 @@
 import React from "react";
-import {  useSelector } from "react-redux";
-import { FaTrashAlt } from 'react-icons/fa';
+import { useDispatch, useSelector } from "react-redux";
 import { useProjects } from "../hooks";
 import { AddProject } from "./AddProject";
 import { DeleteProject } from "./DeleteProject";
 
+
 export const Projects = () => {
   useProjects();
+  const dispatch = useDispatch()
   const projects = useSelector((state) => state.addTask.getProject)
+  const showSelected = useSelector((state) => state.addTask.showSelected)
+
+  // const handleShow = () => {
+  //   dispatch(showModel(true));
+  // }
   return (
     <>
       <div data-testid="sidebar" style={{
@@ -19,14 +25,12 @@ export const Projects = () => {
       }}>
         <ul className="task__list">
           {projects.map((project) =>
-            <li key={`${project.id}`}>
-              {/* <li id={project.projectId} /> */}
-              <span>{project.name}</span><FaTrashAlt/>
+            <li key={project.projectId}>
+              <DeleteProject pro={project} />
             </li>
           )}
         </ul>
-        <AddProject/>
-        <DeleteProject project={projects} />
+        <AddProject />
       </div>
     </>
   )

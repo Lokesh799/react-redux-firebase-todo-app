@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { addProject } from '../actions';
+import { FaTrashAlt } from 'react-icons/fa';
+import { addProject,showProjectArray,setSelectIndividualProject, setSelectProjectId, showSelectProjectName } from '../actions';
 import { firebase } from '../firebase';
 import { useDispatch, useSelector } from 'react-redux';
 
-export const DeleteProject = ({ project }) => {
-  const dispatch=useDispatch()
+export const DeleteProject = ({ pro }) => {
+  const dispatch = useDispatch()
   const [showConfirm, setShowConfirm] = useState(false);
   const projects = useSelector((state) => state.addTask.addProject)
+
+  console.log('sfsdfdfshdfgkj', pro)
+
+
 
   const deleteProject = (docId) => {
     firebase
@@ -19,11 +24,19 @@ export const DeleteProject = ({ project }) => {
         dispatch(addProject([...projects]));
       });
   };
+  const handleClick = () => {
 
+    dispatch(showProjectArray(true))
+    dispatch(setSelectIndividualProject(false))
+    dispatch(setSelectProjectId(pro.projectId))
+    dispatch(showSelectProjectName(pro.name))
+    //window.location.reload()
+
+  }
   return (
+
     <>
-      <span className="sidebar__dot">•</span>
-      <span className="sidebar__project-name">{project.name}</span>
+      <span className="sidebar__project-name" onClick={() => handleClick()}>{pro.name}</span>
       <span
         className="sidebar__project-delete"
         data-testid="delete-project"
@@ -35,14 +48,14 @@ export const DeleteProject = ({ project }) => {
         role="button"
         aria-label="Confirm deletion of project"
       >
-
+        <FaTrashAlt />
         {showConfirm && (
           <div className="project-delete-modal">
             <div className="project-delete-modal__inner">
               <p>Are you sure you want to delete this project?</p>
               <button
                 type="button"
-                onClick={() => deleteProject(project.docId)}
+                onClick={() => deleteProject(pro.docId)}
               >
                 Delete
               </button>

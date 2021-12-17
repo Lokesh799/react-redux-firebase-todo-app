@@ -7,7 +7,12 @@ import { SET_SHOW_QUICK_TASK,
   SHOW_PROJECT,
   ADD_PROJECT,
   GET_SELECTED_PROJECT,
-  SET_PROJECT_NAME
+  SET_PROJECT_NAME,
+  SET_SELECT_INDIVIDUAL_PROJECT,
+  SET_SELECT_PROJECT_ID,
+  SHOW_TASK_PROJECT,
+  SET_SELECTED_PROJECT_NAME,
+  SHOW_PROJECTS_ARRAY
 } from "../actions";
 
 const initialState = {
@@ -21,6 +26,11 @@ const initialState = {
   addProject:[],
   getProject:[],
   setName:[],
+  selecteIndividauldProject:false,
+  storeProjectId:"",
+  showTask:true,
+  setProjectName:[],
+  showProjectArray:false,
 }
 
 const addTask = (state = initialState, action) => {
@@ -75,6 +85,31 @@ const addTask = (state = initialState, action) => {
         ...state,
         setName: action.payload,
       };
+    case SET_SELECT_INDIVIDUAL_PROJECT:
+      return {
+        ...state,
+        selecteIndividauldProject: action.payload,
+      };
+    case SET_SELECT_PROJECT_ID:
+      return {
+        ...state,
+        storeProjectId: action.payload,
+      };
+    case SHOW_TASK_PROJECT:
+      return {
+        ...state,
+        showTask: action.payload,
+      };
+    case SET_SELECTED_PROJECT_NAME:
+      return {
+        ...state,
+        setProjectName: action.payload,
+      };
+    case SHOW_PROJECTS_ARRAY:
+      return{
+        ...state,
+        showProjectArray:action.payload
+      }
     default:
       return state;
   }
