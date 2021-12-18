@@ -1,25 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { firebase } from '../firebase';
-import {  AiFillDelete } from "react-icons/ai"
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 
 export const Checkbox = ({ id, taskDesc }) => {
-  const handleClick = () => {
+  const archiveTask = () => {
     firebase.firestore().collection('tasks').doc(id).update({
       archived: true,
     });
   };
 
-
+  console.log("nfsdkjf", taskDesc)
 
   return (
-    <div data-testid="checkbox-action" >
-      <button onClick={handleClick}> <AiFillDelete /></button>
-    </div>
+    <AiOutlineCheckCircle role="button" onClick={()=>archiveTask()}  />
   );
 };
 
-Checkbox.propTypes = {
-  id: PropTypes.string.isRequired,
-  taskDesc: PropTypes.string.isRequired,
-};

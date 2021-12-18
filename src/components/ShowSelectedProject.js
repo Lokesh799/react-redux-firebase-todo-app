@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { showModel} from "../actions";
 import Button from "@restart/ui/esm/Button";
 import { ShowProject } from "./ShowProject";
+import { Checkbox } from "./Checkbox";
 
 export const ShowSelectedProject = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export const ShowSelectedProject = () => {
             <ul className="task__list">
               {task.map((task) =>
                 <li key={`${task.id}`}>
-                  {/* <li id={task.id} taskDesc={task.tasks} /> */}
+                  <Checkbox id={task.id} taskDesc={task.task} />
                   <span>{task.tasks}</span>
                 </li>
               )}
@@ -39,7 +40,7 @@ export const ShowSelectedProject = () => {
               <ul className="task__list">
                 {task.map((task) =>
                   <li key={`${task.id}`}>
-                    {/* <li id={task.id} taskDesc={task.tasks} /> */}
+                    <Checkbox id={task.id} taskDesc={task.task} />
                     <span>{task.tasks}</span>
                   </li>
                 )}
@@ -52,7 +53,7 @@ export const ShowSelectedProject = () => {
                 <ul className="task__list">
                   {task.map((task) =>
                     <li key={`${task.id}`}>
-                      {/* <li id={task.id} taskDesc={task.tasks} /> */}
+                      <Checkbox id={task.id} taskDesc={task.task} />
                       <span>{task.tasks}</span>
                     </li>
                   )}
@@ -63,8 +64,13 @@ export const ShowSelectedProject = () => {
               </div>
           }
         </>
-      ) : <ShowProject />}
-      
+      ) : 
+        <div className="text-center" >
+          <ShowProject />
+                  <Button className="btn btn-warning " onClick={() => handleShow(true)}>AddTask</Button>
+                </div>
+    
+        }
     </>
   )
 }

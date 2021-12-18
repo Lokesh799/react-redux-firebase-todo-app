@@ -21,7 +21,7 @@ export const Hook = () => {
           id: task.id,
           ...task.data(),
         }))
-        dispatch(getSelectedTask(getRecord))
+        dispatch(getSelectedTask(getRecord.filter((data)=>data.archived !== true)))
       })
     }
     else if (showSelected === 'TODAY') {
@@ -34,7 +34,7 @@ export const Hook = () => {
           id: task.id,
           ...task.data(),
         }))
-        dispatch(getSelectedTask(getRecord.filter(data => data.date == moment().format("DD/MM/YYYY") || data.date == "")))
+        dispatch(getSelectedTask(getRecord.filter(data => data.date == moment().format("DD/MM/YYYY") && data.archived !== true)))
       })
     }
     else {
@@ -46,7 +46,7 @@ export const Hook = () => {
           id: task.id,
           ...task.data(),
         }))
-        dispatch(getSelectedTask(getRecord.filter((data) => moment(data.date, "DD-MM-YYYY").diff(moment(), "days") <= 7)))
+        dispatch(getSelectedTask(getRecord.filter((data) => moment(data.date, "DD-MM-YYYY").diff(moment().format('MMM D, YYYY')) > 0 && data.archived !== true)))
       })
     }
   }, [showSelected]);
