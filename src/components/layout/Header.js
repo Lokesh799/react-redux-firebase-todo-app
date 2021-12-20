@@ -2,7 +2,7 @@ import React from "react";
 import { FaPizzaSlice, FaRegCalendarAlt } from "react-icons/fa"
 import { Modal } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-import { showModel, setShowQuickAddTask, toggleDate, showTaskDate } from "../../actions";
+import { showModel, setShowQuickAddTask, toggleDate, setDarkMode } from "../../actions";
 import { TaskDate } from "../TaskDate";
 import { useSelector, useDispatch } from 'react-redux';
 import { firebase } from "../../firebase";
@@ -14,6 +14,8 @@ export const Header = () => {
   const setTaskDate = useSelector((state) => state.addTask.setTaskDate)
   const showHideCalender = useSelector((state) => state.addTask.toggleDate)
   const projectId = useSelector((state) => state.addTask.storeProjectId)
+  const darkMode = useSelector((state) => state.addTask.darkMode)
+
   const handleChange = (e) => {
     dispatch(setShowQuickAddTask({ ...quickTask, [e.target.name]: e.target.value }))
   }
@@ -41,34 +43,35 @@ export const Header = () => {
   const handleShow = () => {
     dispatch(showModel(true));
   }
+
+  const handleDarkMode = () => {
+    dispatch(setDarkMode(!darkMode));
+  }
   return (
     <>
-      <div className="navbar navbar-expand-lg" style={{
-        display: 'flex',
-        justifyContent: 'center',
-        color: '#9f0500',
-        backgroundColor: '#455a64'
-      }}>
-        <nav >
+      <div className={ darkMode ? "box" : "box1"}>
+        <div className="navbar navbar-expand-lg ">
+        <nav>
           <div className="collapse navbar-collapse" id="navbarText">
             <div className="navbar-collapse collapse">
               <ul className="nav navbar-nav navbar-right">
-                <li className="nav-item px-3 ">
-                  <button onClick={() => handleShow(true)}>+
+                <li className="nav-item px-3">
+                  <button className='btn' onClick={() => handleShow(true)}>+
                   </button>
                 </li>
-                <li className="nav-item px-3"><button
+                  <li className="nav-item px-3 "><button className="btn"
                   data-testid="dark-mode-action"
                   aria-label="Darkmode on/off"
                   type="button"
-                  onClick>
-                  <FaPizzaSlice />
+                  onClick={() => handleDarkMode()}>
+                  <FaPizzaSlice/>
                 </button>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
+      </div>
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

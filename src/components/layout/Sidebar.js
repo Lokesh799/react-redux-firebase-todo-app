@@ -38,7 +38,7 @@ export const Sidebar = () => {
             <span><FaRegCalendarAlt /></span>
             <span>Today</span>
           </li>
-          <li className="list-group-item" style={{ backgroundColor: '#008b02' }}
+          <li className="list-group-item" 
             onClick={() => {
               dispatch(setSelectedProject('7_DAYS'))
               dispatch(showTaskProject(false))

@@ -5,10 +5,10 @@ import { Hook } from "../../hooks";
 
 export const Content = () => {
   return (
-    <section style={{ position: 'relative', display: 'flex', }}>
+    <section style={{ position: 'relative', display: 'flex', backgroundColor: '#c3b831', }}>
       <div style={{
         float: 'right',
-        backgroundColor: '#eb144c',
+        backgroundColor: '#c3b831',
         borderRadius: '6px',
         justifyContent: 'flex-end',
         justifyItems: 'flex-end',
@@ -18,7 +18,7 @@ export const Content = () => {
       </div>
       <div style={{
         float: 'right',
-        backgroundColor: '#607d8b',
+        // backgroundColor: '#607d8b',
         borderRadius: '6px',
         justifyContent: 'flex-end',
         justifyItems: 'flex-end',

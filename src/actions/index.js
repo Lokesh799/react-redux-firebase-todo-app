@@ -15,6 +15,7 @@ export const SET_SELECT_PROJECT_ID = 'SET_SELECT_PROJECT_ID';
 export const SHOW_TASK_PROJECT = 'SHOW_TASK_PROJECT';
 export const SET_SELECTED_PROJECT_NAME = 'SET_SELECTED_PROJECT_NAME';
 export const SHOW_PROJECTS_ARRAY = 'SHOW_PROJECTS_ARRAY';
+export const SET_DARK_MODE = 'SET_DARK_MODE';
 
 
 export const showModel = (payload) => ({ type: SHOW_MODEL, payload });
@@ -33,4 +34,5 @@ export const setSelectIndividualProject = (payload) => ({ type: SET_SELECT_INDIV
 export const setSelectProjectId = (payload) => ({ type: SET_SELECT_PROJECT_ID, payload });
 export const showTaskProject = (payload) => ({ type: SHOW_TASK_PROJECT, payload });
 export const showSelectProjectName = (payload) => ({ type: SET_SELECTED_PROJECT_NAME, payload });
-export const showProjectArray = (payload) => ({ type: SHOW_PROJECTS_ARRAY, payload })
+export const showProjectArray = (payload) => ({ type: SHOW_PROJECTS_ARRAY, payload });
+export const setDarkMode = (payload) => ({ type: SET_DARK_MODE, payload });

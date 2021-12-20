@@ -14,7 +14,6 @@ export const Projects = () => {
   return (
     <>
       <div data-testid="sidebar" style={{
-        backgroundColor: '#607d8b',
         marginRight: '200px',
         padding: '20px',
         width: '80%',

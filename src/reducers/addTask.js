@@ -13,7 +13,9 @@ import {
   SET_SELECT_PROJECT_ID,
   SHOW_TASK_PROJECT,
   SET_SELECTED_PROJECT_NAME,
-  SHOW_PROJECTS_ARRAY
+  SHOW_PROJECTS_ARRAY,
+  SET_DARK_MODE ,
+
 } from "../actions";
 
 const initialState = {
@@ -32,6 +34,7 @@ const initialState = {
   showTask: true,
   setProjectName: [],
   showProjectArray: false,
+  darkMode:true,
 }
 
 const addTask = (state = initialState, action) => {
@@ -110,6 +113,11 @@ const addTask = (state = initialState, action) => {
       return {
         ...state,
         showProjectArray: action.payload
+      }
+    case SET_DARK_MODE:
+      return {
+        ...state,
+        darkMode: action.payload
       }
     default:
       return state;

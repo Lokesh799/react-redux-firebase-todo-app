@@ -31,7 +31,7 @@ export const ShowSelectedProject = () => {
               )}
             </ul>
             <div className="text-center" >
-              <Button className="btn btn-warning " onClick={() => handleShow(true)}>AddTask</Button>
+              <Button className="btn btn-info " onClick={() => handleShow(true)}>AddTask</Button>
             </div>
           </div>
             : showSelected === "TODAY" ? <div> <h2 data-testid="project-name">TODAY</h2>
@@ -44,7 +44,7 @@ export const ShowSelectedProject = () => {
                 )}
               </ul>
               <div className="text-center" >
-                <Button className="btn btn-warning " onClick={() => handleShow(true)}>AddTask</Button>
+                <Button className="btn btn-info " onClick={() => handleShow(true)}>AddTask</Button>
               </div>
             </div>
               : <div> <h2 data-testid="project-name">7_DAYS</h2>
@@ -57,7 +57,7 @@ export const ShowSelectedProject = () => {
                   )}
                 </ul>
                 <div className="text-center" >
-                  <Button className="btn btn-warning " onClick={() => handleShow(true)}>AddTask</Button>
+                  <Button className="btn btn-info " onClick={() => handleShow(true)}>AddTask</Button>
                 </div>
               </div>
           }
@@ -65,9 +65,8 @@ export const ShowSelectedProject = () => {
       ) :
         <div className="text-center" >
           <ShowProject />
-          <Button className="btn btn-warning " onClick={() => handleShow(true)}>AddTask</Button>
+          <Button className="btn btn-info " onClick={() => handleShow(true)}>AddTask</Button>
         </div>
-
       }
     </>
   )
