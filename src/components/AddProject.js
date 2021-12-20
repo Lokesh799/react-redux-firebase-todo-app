@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { firebase } from '../firebase';
-import { useDispatch , useSelector } from 'react-redux';
-import { addProject , setProjectName } from '../actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProject, setProjectName } from '../actions';
 
 export const AddProject = ({ shouldShow = false }) => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export const AddProject = ({ shouldShow = false }) => {
       .firestore()
       .collection('projects')
       .add({
-        projectId:new Date().getTime().toString(),
+        projectId: new Date().getTime().toString(),
         name: projectName,
         userId: '"bbORIylmKi9Pg3MaW9fF"',
       })

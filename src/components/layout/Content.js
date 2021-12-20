@@ -8,7 +8,6 @@ export const Content = () => {
     <section style={{ position: 'relative', display: 'flex', }}>
       <div style={{
         float: 'right',
-        // paddingRight: '600px',
         backgroundColor: '#eb144c',
         borderRadius: '6px',
         justifyContent: 'flex-end',
@@ -19,7 +18,6 @@ export const Content = () => {
       </div>
       <div style={{
         float: 'right',
-        // paddingRight: '600px',
         backgroundColor: '#607d8b',
         borderRadius: '6px',
         justifyContent: 'flex-end',

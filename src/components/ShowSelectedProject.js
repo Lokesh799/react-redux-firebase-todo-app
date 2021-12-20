@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { showModel} from "../actions";
+import { showModel } from "../actions";
 import Button from "@restart/ui/esm/Button";
 import { ShowProject } from "./ShowProject";
 import { Checkbox } from "./Checkbox";
@@ -10,11 +10,9 @@ export const ShowSelectedProject = () => {
   const showSelected = useSelector((state) => state.addTask.showSelected)
   const task = useSelector((state) => state.addTask.selectedTaskRecord)
   const showSelectedProject = useSelector((state) => state.addTask.showTask)
-  console.log(showSelectedProject)
   const showprojecttoggle = useSelector((state) => state.addTask.showProjectArray)
-  console.log(showprojecttoggle)
   const data = useSelector((state) => state.addTask.selecteIndividauldProject)
-  
+
   const handleShow = () => {
     dispatch(showModel(true));
   }
@@ -64,13 +62,13 @@ export const ShowSelectedProject = () => {
               </div>
           }
         </>
-      ) : 
+      ) :
         <div className="text-center" >
           <ShowProject />
-                  <Button className="btn btn-warning " onClick={() => handleShow(true)}>AddTask</Button>
-                </div>
-    
-        }
+          <Button className="btn btn-warning " onClick={() => handleShow(true)}>AddTask</Button>
+        </div>
+
+      }
     </>
   )
 }

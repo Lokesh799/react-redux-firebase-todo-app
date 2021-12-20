@@ -21,7 +21,7 @@ export const Hook = () => {
           id: task.id,
           ...task.data(),
         }))
-        dispatch(getSelectedTask(getRecord.filter((data)=>data.archived !== true)))
+        dispatch(getSelectedTask(getRecord.filter((data) => data.archived !== true)))
       })
     }
     else if (showSelected === 'TODAY') {
@@ -34,7 +34,8 @@ export const Hook = () => {
           id: task.id,
           ...task.data(),
         }))
-        dispatch(getSelectedTask(getRecord.filter(data => data.date == moment().format("DD/MM/YYYY") && data.archived !== true)))
+        dispatch(getSelectedTask(getRecord.filter(data => data.date == moment().format("DD/MM/YYYY")
+          && data.archived !== true)))
       })
     }
     else {
@@ -46,7 +47,9 @@ export const Hook = () => {
           id: task.id,
           ...task.data(),
         }))
-        dispatch(getSelectedTask(getRecord.filter((data) => moment(data.date, "DD-MM-YYYY").diff(moment().format('MMM D, YYYY')) > 0 && data.archived !== true)))
+        dispatch(getSelectedTask(getRecord.filter((data) => moment(data.date, "DD-MM-YYYY")
+          .diff(moment().format('MMM D, YYYY')) > 0
+          && data.archived !== true)))
       })
     }
   }, [showSelected]);
@@ -66,7 +69,6 @@ export const useProjects = () => {
       .firestore()
       .collection('projects')
       .orderBy('projectId')
-
       .get()
       .then(snapshot => {
         const allProjects = snapshot.docs.map(project => ({
@@ -76,7 +78,6 @@ export const useProjects = () => {
         if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
           dispatch(getSelectedProject(allProjects));
         }
-
       });
   }, [projects]);
 

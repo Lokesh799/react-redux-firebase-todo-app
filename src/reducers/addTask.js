@@ -1,4 +1,5 @@
-import { SET_SHOW_QUICK_TASK,
+import {
+  SET_SHOW_QUICK_TASK,
   TOGGLE_DATE,
   SHOW_TASK_DATE,
   SET_TASK_DATE,
@@ -17,20 +18,20 @@ import { SET_SHOW_QUICK_TASK,
 
 const initialState = {
   addQuickTask: [],
-  setTaskDate:"",
+  setTaskDate: "",
   toggleDate: false,
-  showDate:false,
-  showSelected:'INBOX',
-  selectedTaskRecord:[],
-  showProject:true,
-  addProject:[],
-  getProject:[],
-  setName:[],
-  selecteIndividauldProject:false,
-  storeProjectId:"",
-  showTask:true,
-  setProjectName:[],
-  showProjectArray:false,
+  showDate: false,
+  showSelected: 'INBOX',
+  selectedTaskRecord: [],
+  showProject: true,
+  addProject: [],
+  getProject: [],
+  setName: [],
+  selecteIndividauldProject: false,
+  storeProjectId: "",
+  showTask: true,
+  setProjectName: [],
+  showProjectArray: false,
 }
 
 const addTask = (state = initialState, action) => {
@@ -106,9 +107,9 @@ const addTask = (state = initialState, action) => {
         setProjectName: action.payload,
       };
     case SHOW_PROJECTS_ARRAY:
-      return{
+      return {
         ...state,
-        showProjectArray:action.payload
+        showProjectArray: action.payload
       }
     default:
       return state;

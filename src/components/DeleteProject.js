@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FaTrashAlt } from 'react-icons/fa';
-import { addProject,showProjectArray,setSelectIndividualProject, setSelectProjectId, showSelectProjectName } from '../actions';
+import {
+  addProject,
+  showProjectArray,
+  setSelectIndividualProject,
+  setSelectProjectId,
+  showSelectProjectName
+} from '../actions';
 import { firebase } from '../firebase';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -9,10 +15,6 @@ export const DeleteProject = ({ pro }) => {
   const dispatch = useDispatch()
   const [showConfirm, setShowConfirm] = useState(false);
   const projects = useSelector((state) => state.addTask.addProject)
-
-  console.log('sfsdfdfshdfgkj', pro)
-
-
 
   const deleteProject = (docId) => {
     firebase

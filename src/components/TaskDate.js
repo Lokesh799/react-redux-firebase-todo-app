@@ -3,16 +3,13 @@ import moment from "moment";
 import { useSelector, useDispatch } from "react-redux";
 import {
   FaSpaceShuttle,
-  FaRegCalendarAlt,
   FaSun,
   FaRegPaperPlane,
 } from "react-icons/fa";
 import { setTaskDate, toggleDate } from "../actions";
 
 export const TaskDate = () => {
-  //const showDate = useSelector((state) => state.addTask.showDate);
   const showHideCalender = useSelector((state) => state.addTask.toggleDate)
-
   const dispatch = useDispatch();
 
   return showHideCalender ? (

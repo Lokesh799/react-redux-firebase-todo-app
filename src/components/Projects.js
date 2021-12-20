@@ -11,9 +11,6 @@ export const Projects = () => {
   const projects = useSelector((state) => state.addTask.getProject)
   const showSelected = useSelector((state) => state.addTask.showSelected)
 
-  // const handleShow = () => {
-  //   dispatch(showModel(true));
-  // }
   return (
     <>
       <div data-testid="sidebar" style={{
